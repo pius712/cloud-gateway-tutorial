@@ -21,9 +21,15 @@ spring:
           predicates:
             - Path=/first-service/**
           filters:
-#            - CustomFilter
-#            - AddRequestHeader=second-request, second-requests-header2
-#            - AddResponseHeader=second-response, second-response-header2
+      #            - CustomFilter
+      #            - AddRequestHeader=second-request, second-requests-header2
+      #            - AddResponseHeader=second-response, second-response-header2
+      default-filters:
+        - name: GlobalFilter
+          args:
+            baseMessage: this is base message
+            preLogger: true
+            postLogger: true
 
 eureka:
   client:
